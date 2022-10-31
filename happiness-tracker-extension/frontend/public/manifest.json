@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Beatific Extension",
+  "version": "1.0.0",
+  "author": "beatific",
+  "description": "Planner designed to prioritize your mental health",
+  "icons": {
+    "16": "favicon16.ico",
+    "48": "favicon48.ico",
+    "128": "favicon128.ico"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": ["storage", "tabs"],
+  "background": {
+    "service_worker": "js/service_worker.js"
+  }
+}

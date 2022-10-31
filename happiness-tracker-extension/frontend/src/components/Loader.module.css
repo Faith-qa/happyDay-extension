@@ -1,0 +1,29 @@
+.loader {
+	height: 50px;
+	transform-origin: bottom center;
+	/* margin: auto; */
+	transform: translateY(20%);
+}
+
+.loader .circle {
+	display: inline-block;
+	width: 34px;
+	height: 12px;
+	border-radius: 360px;
+	background-color: #e2e2e2;
+	transform: scale(0);
+	animation: grow 1.5s linear infinite;
+	margin: -8px;
+	animation-delay: 0.2s;
+}
+
+.loader .circle:nth-child(2) {
+	background-color: #ff90d0;
+	animation-delay: 0.85s;
+}
+
+@keyframes grow {
+	50% {
+		transform: scale(1);
+	}
+}

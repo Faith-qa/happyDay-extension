@@ -1,0 +1,58 @@
+.App {
+	max-width: 100vw;
+	max-height: 100vh;
+	height: 100vh;
+	width: 100%;
+	transition: background 300ms ease-in 200ms;
+	/* background-color: rgba(0, 0, 0, 0.2); */
+	background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: fadein 2s; /* Firefox < 16 */
+	-ms-animation: fadein 2s; /* Internet Explorer */
+	-o-animation: fadein 2s; /* Opera < 12.1 */
+	animation: fadein 2s;
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.App .overlay {
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.2);
+	text-align: center;
+	color: #ffffff;
+	font-family: 'Quicksand', sans-serif;
+	letter-spacing: 4.8px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: 0;
+}

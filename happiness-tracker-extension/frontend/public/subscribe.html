@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="subscribe.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&family=Varela+Round&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://js.stripe.com/v3/"></script>
+		<script>
+			const now = new Date();
+			const yyyy = now.getFullYear();
+			let mm = now.getMonth() + 1;
+			let dd = now.getDate();
+
+			if (dd < 10) dd = '0' + dd;
+			if (mm < 10) mm = '0' + mm;
+
+			const today = `${yyyy}-${mm}-${dd}`;
+
+			fetch(
+				`http://happiness-tracker-extension-dev.us-east-2.elasticbeanstalk.com/api/v1/images/${today}T00:00:00.000Z`
+			)
+				.then((res) => {
+					return res.json();
+				})
+				.then((data) => {
+					console.log(data);
+					const container = document.getElementById('container');
+					if (data.image) {
+						container.style.backgroundImage = `url(${data.image})`;
+					} else if (data.message === 'Image not found') {
+						console.log(container);
+						container.style.backgroundImage =
+							'https://i.postimg.cc/cLjZm9RS/default-01.jpg';
+					}
+				})
+				.catch((err) => {
+					console.log('Error: ' + err);
+					const container = document.getElementById('container');
+					console.log(container);
+					container.style.backgroundImage =
+						'https://i.postimg.cc/cLjZm9RS/default-01.jpg';
+				});
+		</script>
+		<title>Subscribe to Beatific</title>
+		<script type="text/javascript">
+			(function (c, l, a, r, i, t, y) {
+				c[a] =
+					c[a] ||
+					function () {
+						(c[a].q = c[a].q || []).push(arguments);
+					};
+				t = l.createElement(r);
+				t.async = 1;
+				t.src = 'https://www.clarity.ms/tag/' + i;
+				y = l.getElementsByTagName(r)[0];
+				y.parentNode.insertBefore(t, y);
+			})(window, document, 'clarity', 'script', 'cvb4rbbild');
+		</script>
+	</head>
+	<script
+		async
+		src="https://www.googletagmanager.com/gtag/js?id=G-S9JG17MMY8"
+	></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-S9JG17MMY8');
+	</script>
+	<body>
+		<div class="container" id="container">
+			<div>
+				<section class="header">
+					<h2>I'm <span id="nameSpan"></span> it feels good to</h2>
+					<h1>Pay Forward</h1>
+				</section>
+				<div class="main">
+					<div class="price-section">
+						<img src="2886699.svg" alt="Icon of Padlock" class="padlockImg" />
+						<p class="secure">100% SECURE</p>
+						<div class="priceDisplay">
+							<img src="badgeMark.svg" alt="icon of badge" />
+							<p id="priceToPay"></p>
+						</div>
+					</div>
+
+					<form id="form">
+						<div id="card-element"></div>
+						<button
+							class="button"
+							type="submit"
+							onclick="this.classlist.toggle('button--loading')"
+						>
+							<span class="button__text">PAY FORWARD</span>
+						</button>
+					</form>
+					<p class="poweredBy">Powered By Stripe</p>
+				</div>
+			</div>
+			<a href="#">Terms of Service</a>
+		</div>
+	</body>
+	<script>
+		const theButton = document.querySelector('.button');
+
+		theButton.addEventListener('click', () => {
+			theButton.classList.add('button--loading');
+		});
+
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		const name = urlParams.get('name');
+		const email = urlParams.get('email');
+		const price = urlParams.get('price');
+
+		const nameSpan = document.getElementById('nameSpan');
+		nameSpan.innerText = name;
+		const priceToPay = document.getElementById('priceToPay');
+		priceToPay.innerText = price;
+
+		const stripe = Stripe(
+			'pk_test_51KddlyDk6SusXP09fF6dnGqxnXpKOz3vB215G4WPbtoI3wvrrPifNbnZXIe9Q9Lu0SP8Paebt8JfxJkYWGVZxPgm00UBWt8TvU'
+		);
+		const elements = stripe.elements();
+		const card = elements.create('card');
+		card.mount('#card-element', {
+			style: {
+				base: {
+					iconColor: 'rgb(193,157,244)',
+				},
+			},
+		});
+
+		let customerId = '';
+
+		const handleSubmit = (e) => {
+			fetch(
+				'http://happiness-tracker-extension-dev.us-east-2.elasticbeanstalk.com/stripe/create-customer',
+				{
+					method: 'post',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						email: email,
+						name: name,
+					}),
+				}
+			)
+				.then((r) => r.json())
+				.then((data) => {
+					const customerId = data.customer.id;
+					fetch(
+						'http://happiness-tracker-extension-dev.us-east-2.elasticbeanstalk.com/stripe/create-sub-html',
+						{
+							method: 'post',
+							headers: {
+								'Content-Type': 'application/json',
+							},
+							body: JSON.stringify({
+								customerId: customerId,
+								price: price,
+							}),
+						}
+					)
+						.then((r) => r.json())
+						.then((data) => {
+							console.log(data);
+							const clientSecret =
+								data.subscription.latest_invoice.payment_intent.client_secret;
+
+							stripe
+								.confirmCardPayment(clientSecret, {
+									payment_method: {
+										card: card,
+										billing_details: {
+											name: name,
+										},
+									},
+								})
+								.then((result) => {
+									if (result.error) {
+										alert(
+											'Something went wrong: ' +
+												result.error.message +
+												' Please try again.'
+										);
+										console.log('getting here');
+									} else {
+										// Successful subscription payment
+										setTimeout(() => {
+											window.close();
+										}, '3000');
+									}
+								});
+						});
+				})
+				.catch((err) => console.log(err));
+			e.preventDefault();
+		};
+
+		const form = document.getElementById('form');
+		form.addEventListener('submit', handleSubmit);
+	</script>
+</html>

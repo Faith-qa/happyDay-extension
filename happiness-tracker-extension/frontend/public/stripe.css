@@ -1,0 +1,13 @@
+body {
+	box-sizing: border-box;
+}
+
+h1 {
+	font-family: 'Varela Round', sans-serif;
+	font-size: '2em';
+}
+
+p {
+	font-family: 'Playfair Display', sans-serif;
+	font-size: 1.2em;
+}

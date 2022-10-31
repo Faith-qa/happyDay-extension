@@ -1,0 +1,47 @@
+{
+	"name": "beatific_extension",
+	"version": "1.0.0",
+	"description": "A health and wellness application.",
+	"main": "backend/server.js",
+	"scripts": {
+		"start": "node backend/server.js",
+		"server": "nodemon backend/server.js",
+		"client": "npm start --prefix frontend",
+		"dev": "concurrently \"npm run server\" \"npm run client\"",
+		"clean": "rimraf www/ || true",
+		"build": "npm run clean && mkdir www && cp package.json www/package.json && mkdir www/tmp/ && cd www && zip -r Archive.zip . && cd ..",
+		"create": "npm run clean && mkdir www && zip -r www/Archive.zip . -x '*.git*'",
+		"prod": "npm run clean && mkdir www && cp -R package.json www/package.json && cp -R backend/server.js www/server.js && cp -R frontend www/frontend && cd www && zip -r Archive.zip . && cd .."
+	},
+	"author": "Andrew Mukare (for Beatific)",
+	"license": "ISC",
+	"dependencies": {
+		"@socket.io/admin-ui": "^0.3.0",
+		"aws-sdk": "^2.1226.0",
+		"axios": "^1.1.2",
+		"bcryptjs": "^2.4.3",
+		"body-parser": "^1.20.0",
+		"colors": "^1.4.0",
+		"cors": "^2.8.5",
+		"csvtojson": "^2.0.10",
+		"dotenv": "^16.0.0",
+		"express": "^4.17.3",
+		"express-async-handler": "^1.2.0",
+		"fast-csv": "^4.3.6",
+		"jimp": "^0.16.2",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^6.2.6",
+		"multer": "^1.4.5-lts.1",
+		"multer-s3-v2": "^2.2.1",
+		"nodemailer": "^6.7.4",
+		"react-contenteditable": "^3.3.6",
+		"socket.io": "^4.5.1",
+		"stripe": "^8.215.0",
+		"typewriter-effect": "^2.19.0",
+		"uuid": "^8.3.2"
+	},
+	"devDependencies": {
+		"concurrently": "^7.1.0",
+		"nodemon": "^2.0.15"
+	}
+}

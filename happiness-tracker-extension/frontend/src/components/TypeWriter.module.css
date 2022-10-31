@@ -1,0 +1,18 @@
+.container {
+	font-family: 'Playfair Display', serif;
+	letter-spacing: 3px;
+	line-height: 80px;
+	font-size: 80px;
+	min-height: 80px;
+	font-weight: 200;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: flex-start;
+	align-items: flex-start; */
+}
+
+/* cursor styling */
+.txtType > .txt {
+	border-right: 0.05em solid white;
+}

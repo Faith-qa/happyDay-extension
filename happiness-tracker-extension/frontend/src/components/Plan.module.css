@@ -1,0 +1,1061 @@
+/* Hiding scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.planContainer {
+  transition: 0.3s ease-in-out;
+}
+
+/*
+* styling for textareas
+*/
+.planContainer textarea {
+  padding: 5px;
+  margin-top: 7px;
+  height: 22px;
+  min-height: 22px;
+  transition: 0.3s ease-in-out;
+}
+
+.planContainer textarea:hover,
+.planContainer textarea:focus,
+.planContainer textarea:active {
+  padding: 5px;
+  height: 22px;
+}
+
+/*
+* styling for checkboxes
+*/
+.planContainer input[type="checkbox"] {
+  position: relative;
+  border: none;
+  outline: none;
+  height: 5px;
+  width: 5px;
+}
+
+.planContainer input[type="checkbox"]::before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 360px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.planContainer input[type="checkbox"]:checked::before {
+  background: url("../images/check.svg");
+  background-size: 15px 15px;
+  height: 15px;
+  width: 15px;
+  border: none;
+}
+
+.darkCheckbox::before {
+  background: #000 !important;
+  border: 2px solid white !important;
+}
+
+/* 
+* Styles for the icon to toggle plan view 
+*/
+.planToggle {
+  position: absolute;
+  right: 15px;
+  bottom: 5px;
+  margin: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.planToggle img {
+  height: 25.74px;
+  width: 19px;
+}
+
+/*
+* Styles for add task button
+*/
+.addTaskBtn {
+  margin-left: 17px;
+  background: none;
+}
+
+.addTaskBtn svg {
+  width: 17px;
+  height: 17px;
+  stroke: #ff9300;
+  border: 1px solid #cbcbcb;
+  border-radius: 360px;
+}
+
+.addTaskBtn svg:hover {
+  stroke: white;
+  background: #ff9300;
+  border-color: #ff9300;
+}
+
+.addTaskBtn svg + span {
+  opacity: 0;
+}
+
+.addTaskBtn svg:hover + span {
+  opacity: 1;
+}
+
+/* 
+* Styles for entire plan-maker container 
+*/
+.planContainer {
+  width: 50.875rem;
+  max-width: 50.875rem;
+  min-width: 50.875rem;
+  height: 95vh;
+  background-color: white;
+  position: absolute;
+  bottom: 45px;
+  right: 15px;
+  border-radius: 19px;
+}
+
+/* 
+* Styles for plan form 
+*/
+.planner {
+  height: 100%;
+  padding-top: 14px;
+  border-radius: 19px;
+  position: absolute;
+  left: 0;
+  width: 43.813rem;
+  max-width: 43.813rem;
+  font-size: 12px;
+  letter-spacing: 0;
+  color: black;
+  text-align: left;
+  overflow-y: scroll;
+}
+
+.planner .topSection {
+  display: flex;
+}
+.planner .colorChooser {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  column-gap: 16px;
+}
+.planner .colorButton {
+  width: 12px;
+  height: 12px;
+  border-radius: 360px;
+  border: none;
+  outline: none;
+  background-color: #4e1f77;
+}
+
+/* common styles for all labels */
+.planner label {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+}
+
+/* Styles for date display at top of form */
+.planner .dateDisplay {
+  font-size: 10px;
+  margin-left: 51px;
+  margin-top: 14px;
+  width: 172px;
+  height: 28px;
+  background-color: black;
+  border-radius: 360px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 14px;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.planner .dateDisplay .gradientDot {
+  background: hsla(21, 88%, 45%, 1);
+
+  background: linear-gradient(
+    0deg,
+    hsla(21, 88%, 45%, 1) 0%,
+    hsla(49, 76%, 64%, 1) 70%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#D8550E", endColorstr="#E9CF5B", GradientType=1 );
+  width: 13px;
+  height: 13px;
+  border-radius: 360px;
+  margin-left: 10px;
+}
+
+/* Styles for hr under date display */
+.planner .underDate {
+  width: 603px;
+  border: 0.5px solid #e2e2e2;
+  margin-left: 51px;
+  margin-bottom: 14px;
+}
+
+/* Styles for "today i'm excited about" and "i'm grateful for" */
+.planner .gratefulForAndOther {
+  margin-left: 51px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.planner .gratefulForAndOther .excitedAboutToday,
+.planner .gratefulForAndOther .gratefulFor {
+  width: 302px;
+  min-height: 91px;
+  padding: 15px 20px 10px 20px;
+}
+
+.planner .gratefulForAndOther .excitedAboutToday {
+  border: 0.5px solid #575757;
+  border-radius: 9px;
+}
+
+.planner .gratefulForAndOther .excitedAboutInput,
+.planner .gratefulForAndOther .gratefulForInput {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  outline: none;
+  overflow: hidden;
+  font-family: sans-serif;
+  border-bottom: 0.5px solid #e2e2e2;
+  width: 260px;
+  height: 22px;
+  color: #4e1f77;
+  resize: vertical;
+  margin-top: 7px;
+  resize: none;
+  padding: 0;
+  min-height: 22px;
+  display: inline-block;
+  overflow-y: hidden;
+  height: auto;
+}
+
+/* styling for main three todo */
+
+.todoDark {
+  color: #fff !important;
+}
+
+.todoDone {
+  text-decoration: line-through !important;
+  color: rgb(193, 193, 193) !important;
+}
+
+.planner .mainThreeTodo {
+  margin-left: 51px;
+  border: 0.5px solid #575757;
+  border-radius: 9px;
+  padding: 15px 20px 10px 20px;
+  width: 603px;
+  min-height: 184px;
+}
+
+.planner .mainThreeTodo .listSection {
+  margin-top: 14px;
+}
+
+.planner .mainThreeTodo .listItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 3px;
+}
+
+.planner .mainThreeTodo .listItem .todoInput:active ~ button,
+.planner .mainThreeTodo .listItem .todoInput:focus ~ button {
+  opacity: 1;
+}
+
+.planner .mainThreeTodo .listItem .todoInput:active ~ button svg,
+.planner .mainThreeTodo .listItem .todoInput:focus ~ button svg {
+  stroke: #707070;
+  background-color: white;
+  border-color: white;
+  width: 14px;
+  height: 14px;
+  border-radius: 360px;
+  border: 1px solid white;
+}
+
+.planner .mainThreeTodo .listItem button {
+  opacity: 0;
+  order: 4;
+}
+
+.planner .mainThreeTodo .listItem:hover button {
+  opacity: 1;
+}
+
+.planner .mainThreeTodo .listItem:hover button svg {
+  stroke: #707070;
+  background-color: white;
+  border-color: white;
+  width: 14px;
+  height: 14px;
+  border-radius: 360px;
+  border: 1px solid white;
+}
+
+.planner .mainThreeTodo .listItem .todoInput:focus ~ button svg:hover,
+.planner .mainThreeTodo .listItem .todoInput:active ~ button svg:hover,
+.planner .mainThreeTodo .listItem button svg:hover,
+.planner .mainThreeTodo .listItem button:hover svg {
+  stroke: white;
+  background-color: black;
+  width: 14px;
+  height: 14px;
+  border: 1px solid black;
+  border-radius: 360px;
+}
+
+.planner .mainThreeTodo .listItem input[type="checkbox"] {
+  order: 2;
+}
+
+.planner .mainThreeTodo .listItem .todoInput:hover ~ .draggable,
+.planner .mainThreeTodo .listItem .todoInput:active ~ .draggable,
+.planner .mainThreeTodo .listItem .todoInput:focus ~ .draggable {
+  opacity: 0.5;
+}
+
+.planner .mainThreeTodo .listItem .draggable {
+  width: 13px;
+  height: 18px;
+  opacity: 0;
+  order: 1;
+}
+
+.planner .mainThreeTodo .listItem:hover .draggable {
+  opacity: 0.5;
+}
+.planner .mainThreeTodo .listItem .draggable:hover {
+  opacity: 1;
+}
+
+.planner .mainThreeTodo .listItem .todoInput,
+.planner .mainThreeTodo .listItem .todoInput:active,
+.planner .mainThreeTodo .listItem .todoInput:focus {
+  white-space: pre-line;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  outline: none;
+  overflow: hidden;
+  font-family: sans-serif;
+  border-bottom: 0.5px solid #e2e2e2;
+  width: 480px;
+  color: #4e1f77;
+  resize: vertical;
+  resize: none;
+  order: 3;
+  padding: 0;
+  height: 22px;
+}
+
+/* styling for daily todo */
+.planner .dailyToDo {
+  margin-top: -7px;
+  margin-bottom: 14px;
+  margin-left: 51px;
+  padding: 29px 20px 10px 20px;
+  width: 603px;
+  min-height: 184px;
+  border: 0.5px solid #d0d0d0;
+  border-top: none !important;
+  border-radius: 9px;
+}
+
+.planner .dailyToDo .listSection {
+  margin-top: 14px;
+}
+
+.planner .dailyToDo .listItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 3px;
+}
+
+.planner .dailyToDo .listItem .draggable {
+  width: 13px;
+  height: 18px;
+  order: 1;
+  opacity: 0;
+}
+
+.planner .dailyToDo .listItem .draggable .dark textarea {
+  background-color: #000 !important;
+}
+
+.planner .dailyToDo .listItem input[type="checkbox"] {
+  order: 2;
+}
+
+.planner .dailyToDo .listItem button {
+  opacity: 0;
+  order: 4;
+}
+
+.planner .dailyToDo .listItem .todoInput:hover + button,
+.planner .dailyToDo .listItem .todoInput:active + button,
+.planner .dailyToDo .listItem .todoInput:focus + button {
+  opacity: 1;
+}
+
+.planner .dailyToDo .listItem:hover button {
+  opacity: 1;
+}
+
+.planner .dailyToDo .listItem .todoInput:hover + button svg,
+.planner .dailyToDo .listItem .todoInput:active + button svg,
+.planner .dailyToDo .listItem .todoInput:focus + button svg,
+.planner .dailyToDo .listItem:hover button svg {
+  stroke: #707070;
+  background-color: white;
+  border-color: white;
+  width: 14px;
+  height: 14px;
+  border: 1px solid white;
+  border-radius: 360px;
+}
+
+.planner .dailyToDo .listItem .todoInput:hover + button svg:hover,
+.planner .dailyToDo .listItem .todoInput:active + button svg:hover,
+.planner .dailyToDo .listItem .todoInput:focus + button svg:hover,
+.planner .dailyToDo .listItem button svg:hover {
+  stroke: white;
+  background-color: black;
+  width: 14px;
+  height: 14px;
+  border: 1px solid black;
+  border-radius: 360px;
+}
+
+.planner .dailyToDo .listItem:hover .todoInput ~ .draggable,
+.planner .dailyToDo .listItem .todoInput:active ~ .draggable,
+.planner .dailyToDo .listItem .todoInput:focus ~ .draggable {
+  opacity: 0.5;
+}
+
+.planner .dailyToDo .listItem .todoInput ~ .draggable:hover {
+  opacity: 1;
+}
+
+.planner .dailyToDo .listItem .todoInput,
+.planner .dailyToDo .listItem .todoInput:active,
+.planner .dailyToDo .listItem .todoInput:focus {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  outline: none;
+  overflow: hidden;
+  font-family: sans-serif;
+  border-bottom: 0.5px solid #e2e2e2;
+  width: 480px;
+  color: #4e1f77;
+  resize: vertical;
+  resize: none;
+  order: 3;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  height: 22px;
+}
+
+/* styling for meal section */
+.planner .meals {
+  margin-left: 51px;
+  margin-right: 51px;
+  margin-top: 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 22px;
+}
+.planner .meals .meal {
+  min-width: 190px;
+}
+
+.planner .meals .breakfastLabel {
+  margin-left: 20px;
+}
+
+.planner .meals textarea {
+  transition: 0.3s ease-in-out;
+}
+
+.planner input[type="text"],
+.planner input[type="text"]:focus,
+.planner input[type="text"]:active {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  outline: none;
+  margin-top: 7px;
+  border-bottom: 0.5px solid #e2e2e2;
+  color: #4e1f77;
+  font-family: sans-serif;
+  padding: 3px;
+  transition: 0.3s ease-in-out;
+}
+
+.planner .meals .meal .mealInput {
+  display: flex;
+  align-items: flex-end;
+}
+
+.planner .meals .meal svg {
+  width: 17px;
+  height: 17px;
+  stroke: #ff9300;
+  border: 1px solid #cbcbcb;
+  border-radius: 360px;
+}
+
+.planner .meals .meal svg:hover {
+  stroke: white;
+  background: #ff9300;
+  border-color: #ff9300;
+}
+
+.planner .meals .meal .mealInput button {
+  opacity: 0;
+}
+
+.planner .meals .meal .mealInput:hover button {
+  opacity: 1;
+}
+
+.planner .meals .meal .mealInput button svg {
+  stroke: #707070;
+  background-color: white;
+  border-color: white;
+  border: 1px solid white;
+  border-radius: 360px;
+  width: 14px;
+  height: 14px;
+}
+
+.planner .meals .meal .mealInput button svg:hover {
+  stroke: white;
+  background-color: black;
+  border: 1px solid black;
+}
+
+.planner .meals .meal .mealInput .caloriesText:active ~ button,
+.planner .meals .meal .mealInput .caloriesText:hover ~ button,
+.planner .meals .meal .mealInput .caloriesText:focus ~ button,
+.planner .meals .meal .mealInput .mealText:active ~ button,
+.planner .meals .meal .mealInput .mealText:hover ~ button,
+.planner .meals .meal .mealInput .mealText:focus ~ button {
+  opacity: 1;
+}
+
+.planner .meals .meal .mealInput .mealText {
+  width: 100%;
+}
+
+.planner .meals .meal .mealInput .mealDot {
+  width: 3px;
+  height: 3px;
+  background-color: black;
+  border-radius: 360px;
+}
+
+.planner .meals .meal .mealInput .caloriesText {
+  width: 45px;
+}
+
+/* styling for water section */
+.planner .water {
+  margin-top: 30px;
+  margin-left: 51px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 38.5px;
+  height: 83px;
+  max-height: 83px;
+  border: 0.5px solid #e2e2e2;
+  border-radius: 9px;
+  width: 603px;
+  background-color: #fcfaff;
+}
+
+.planner .water .waterChecks {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.planner .water .waterChecks .betweenChecks {
+  border: 0.5px solid #e2e2e2;
+  width: 32.5px;
+}
+
+.planner .water .waterChecks .labelArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.planner .water .waterChecks .labelArea {
+  position: relative;
+}
+
+.planner .water .waterChecks .labelArea img {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: -7px;
+  left: 5px;
+  visibility: hidden;
+}
+
+.planner .water .waterChecks label {
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  box-shadow: none;
+  border: 0.5px solid #c6e0ff;
+  background-color: #fcfaff;
+  border-radius: 360px;
+  cursor: pointer;
+}
+
+.planner .water .waterChecks label:hover {
+  box-shadow: 0px 3px 3px #93b0ff;
+  color: white;
+  background-color: #93b0ff;
+}
+
+.planner .water .waterChecks input[type="radio"]:checked label {
+  box-shadow: 0px 3px 3px #93b0ff;
+  color: white;
+  background-color: #93b0ff;
+}
+
+.planner .water .waterChecks input[type="radio"]:checked ~ .labelArea label {
+  color: white;
+  background-color: #93b0ff;
+}
+
+/* styling for exercise, meditation, relaxation section */
+.planner .exerciseMeditationAndRelaxation {
+  margin-left: 34px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  width: 603px;
+  justify-content: space-around;
+}
+
+.planner .exerciseMeditationAndRelaxation .checkSection {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.planner .exerciseMeditationAndRelaxation input[type="checkbox"]::before {
+  border: 2px solid black;
+}
+
+.planner
+  .exerciseMeditationAndRelaxation
+  input[type="checkbox"]:checked::before {
+  border: none;
+}
+/* styling for happy scale section */
+.darkBottom {
+  background-color: #fbfbfb;
+  border-radius: 0 0 0 19px;
+  padding: 30px 0;
+}
+
+.happinessScale {
+  margin-bottom: 30px;
+  max-height: 83px;
+}
+
+.planner .happinessScale .labelSection {
+  display: flex;
+  align-items: center;
+  column-gap: 23px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.planner .happinessScale .labelSection img {
+  height: 15px;
+  width: 15px;
+}
+
+.planner .happinessScale .happinessChecks .betweenChecks {
+  border: 0.5px solid #e2e2e2;
+  width: 34px;
+}
+
+.planner .happinessScale .happinessChecks {
+  margin-left: 54px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 603px;
+}
+
+.planner .happinessScale .happinessChecks .labelArea {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.planner .happinessScale .happinessChecks .labelArea img {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: -7px;
+  left: 5px;
+  visibility: hidden;
+}
+
+.planner .happinessScale .happinessChecks .labelArea label {
+  text-align: center;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 360px;
+  cursor: pointer;
+  color: white;
+}
+
+.planner .happinessScale .happinessChecks .labelArea label:hover {
+  box-shadow: 0px 3px 3px #ff8bd0;
+  border: 0.5px solid #ff90d0;
+}
+
+.planner
+  .happinessScale
+  .happinessChecks
+  input[type="radio"]:checked
+  ~ .labelArea
+  label {
+  color: white;
+  background-color: #ff90d0 !important;
+  box-shadow: none !important;
+}
+
+/* styling for daily question area */
+.planner .dailyQuestion {
+  margin-left: 51px;
+  width: 603px;
+  max-width: 603px;
+}
+
+.planner .dailyQuestion textarea,
+.planner .dailyQuestion textarea:focus,
+.planner .dailyQuestion textarea:active {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  outline: none;
+  overflow: hidden;
+  font-family: sans-serif;
+  border-bottom: 0.5px solid #e2e2e2;
+  width: 603px;
+  color: #4e1f77;
+  resize: vertical;
+  margin-top: 7px;
+  padding: 0;
+  resize: none;
+  height: 22px;
+}
+
+/* 
+* Styles for date picker 
+*/
+
+.planContainer .datePicker {
+  border-left: 0.5px solid #ffefef;
+  width: 7.063rem;
+  min-width: 7.063rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  height: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  background-color: #fdf8f8;
+  border-top-right-radius: 19px;
+  border-bottom-right-radius: 19px;
+  transition: 0.3s ease-in-out;
+}
+
+.datePicker .selectors {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  width: 100%;
+}
+
+.datePicker button:active,
+.datePicker button:focus {
+  border: 0.5px solid #ffb1b1;
+  box-shadow: 0px 3px 2px #ffb7b7;
+  margin-bottom: 5px;
+}
+
+.datePicker button:hover {
+  box-shadow: 0px 3px 2px #ffb1b1;
+}
+
+/* styles for day selector */
+.datePicker .selectors .days {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: black;
+  margin-left: 15px;
+  margin-right: 15px;
+  overflow: scroll;
+  height: 100%;
+}
+
+.datePicker .selectors .days .day {
+  width: 18px;
+  height: 23px;
+  margin-bottom: 2.8px;
+  font-size: 10px;
+  color: #dc60a8;
+  box-shadow: inherit;
+  border-radius: 90px;
+
+  transition: 0.3s ease-in-out;
+}
+
+.datePicker .selectors .days .day:hover {
+  box-shadow: 0px 2px 4px #ffbfbf;
+
+  border: 0.5px solid #ffd3d3;
+}
+
+/* styles for months and years display */
+.datePicker .selectors .monthsOrYears {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 5vh;
+  height: 100%;
+}
+
+.datePicker .selectors .monthsOrYears .period {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 360px;
+  border: 1px solid #ffefef;
+  margin-bottom: -0.9em;
+  color: black;
+  width: 4.8vh;
+  height: 100%;
+  min-width: 35px;
+  transition: 0.3s ease-in-out;
+}
+
+.datePicker .selectors .monthsOrYears .period button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4vh;
+  height: 6.65vh;
+  margin-bottom: 3.5px;
+  border-radius: 90px;
+  color: #d94f9f;
+  font-size: 10px;
+}
+
+/* calendar icon styling */
+.datePicker .calendarIcon {
+  min-width: 5vh;
+  min-height: 5vh;
+  box-shadow: 0px 3px 6px #ffbfbf;
+  border: 1px solid #ffcece;
+  border-radius: 90px;
+  margin-top: 5px;
+  align-self: flex-end;
+  margin-right: calc(100% / 2 - 48px / 2 - 5vh / 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.datePicker .calendarIcon img {
+  width: 17px;
+  height: 17px;
+}
+
+.datePicker .calendarIcon svg {
+  stroke: #ffcece;
+  width: 28px;
+  height: 28px;
+}
+
+.wiggling {
+  transition: 0.3 ease-in-out;
+  animation: shake 0.6s ease-in-out infinite;
+  transform: rotate(0);
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@media screen and (max-height: 900px) {
+  .datePicker .monthsOrYears .selectors .period {
+    width: 6vh;
+  }
+  .datePicker .monthsOrYears .selectors.period button {
+    width: 5.5vh;
+    height: 6.65vh;
+    margin-bottom: 3.5px;
+  }
+}
+@media screen and (max-height: 700px) {
+  .datePicker .monthsOrYears .selectors .period {
+    width: 7vh;
+  }
+  .datePicker .monthsOrYears .selectors .period button {
+    width: 6vh;
+    height: 6.5h;
+    margin-bottom: 1px;
+  }
+}
+
+/* animations */
+
+.scaleIn {
+  -webkit-animation: scale-in-br 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: scale-in-br 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.scaleOut {
+  -webkit-animation: scale-out-br 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
+  animation: scale-out-br 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+@-webkit-keyframes scale-in-br {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+}
+@keyframes scale-in-br {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes scale-out-br {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+}
+@keyframes scale-out-br {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+}

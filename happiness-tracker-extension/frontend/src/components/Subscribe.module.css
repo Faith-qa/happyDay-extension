@@ -1,0 +1,214 @@
+.subscribeView {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+.subscribeView .subscribeContainer {
+	width: 630px;
+	height: 504px;
+	background: #ffffff 0% 0% no-repeat padding-box;
+	border: 1px solid #ffffff;
+	border-radius: 20px;
+	padding-left: 29px;
+	padding-right: 29px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+/* .subscribeContainer .inner . */
+
+.subscribeView .subscribeContainer .inner .promoSection {
+	margin-bottom: 149px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.subscribeView .subscribeContainer .inner .promoSection p {
+	font-family: 'Playfair Display', serif;
+	line-height: 66px;
+	font-size: 66px;
+	font-weight: 200;
+	color: #000000;
+	margin-bottom: 16px;
+}
+
+.subscribeView .subscribeContainer .inner .promoSection .starSection {
+	display: flex;
+	gap: 21px;
+	margin-bottom: 16px;
+}
+
+.subscribeView .subscribeContainer .inner .promoSection article {
+	font-size: 12px;
+	letter-spacing: 4.32px;
+	opacity: 0.53;
+	color: #000000;
+	font-weight: bold;
+}
+
+.subscribeView .subscribeContainer .inner .monthlyOrYearlyTab {
+	margin-top: -94px;
+	height: 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.subscribeView
+	.subscribeContainer
+	.inner
+	.monthlyOrYearlyTab
+	.monthlyOrYearly
+	button {
+	background: none;
+	cursor: pointer;
+	border: none;
+	padding-bottom: 2px;
+	font-weight: 300;
+}
+
+.subscribeView .subscribeContainer .inner .monthlyOrYearlyTab p {
+	font-size: 17px;
+	color: #000000;
+	letter-spacing: 0px;
+	margin-top: 32px;
+}
+
+.monthlyPrices,
+.yearlyPrices {
+	margin-top: 42px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	font-size: 15px;
+}
+
+input[type='radio'] + label {
+	color: #000000;
+	cursor: pointer;
+	background-color: #edededba;
+	border: 1px solid #dbdbdb;
+	border-radius: 360px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 135px;
+	height: 49px;
+}
+
+input[type='radio'] {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	white-space: nowrap;
+	width: 1px;
+}
+
+input[type='radio']:checked + label,
+input[type='radio']:hover + label {
+	background-color: #0089ff;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+}
+
+.subscribeView .subscribeContainer .inner .priceDisplay img {
+	height: 30px;
+	width: 30px;
+}
+
+.subscribeView .subscribeContainer .inner .priceDisplay > p {
+	font-size: 12px;
+	margin-top: 13px;
+	margin-bottom: 18px;
+	color: #000000;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: 'Quicksand', sans-serif;
+	letter-spacing: 4.32px;
+}
+
+.subscribeView .subscribeContainer .inner .priceDisplay .price {
+	background: #0089ff;
+	margin: auto;
+	width: 114px;
+	height: 49px;
+	border: 1px solid #ffffff;
+	border-radius: 360px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.subscribeView .subscribeContainer .inner .priceDisplay .price p {
+	font-size: 15px;
+	letter-spacing: 2.1px;
+}
+
+.subscribeView .subscribeContainer .inner .cardSection {
+	margin-top: 32px;
+	height: 212px;
+	width: 562px;
+	border: 1px solid #ededed;
+	border-radius: 20px;
+	background: #f8f8f8 0% 0% no-repeat padding-box;
+	display: flex;
+	flex-direction: column;
+	align-items: space-around;
+	justify-content: center;
+	gap: 26px;
+}
+
+.subscribeView .subscribeContainer .inner .cardSection button {
+	margin-top: 26px;
+	width: 499px;
+	height: 49px;
+	border-radius: 360px;
+	background: transparent url('../images/gradient.png') 0% 0% no-repeat
+		padding-box;
+	border: none;
+	cursor: pointer;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	color: #ffffff;
+	letter-spacing: 3.9px;
+}
+
+.poweredBy {
+	outline: 4px solid red;
+	color: #696969;
+	text-align: center;
+}
+
+.subscribeView .backBtn {
+	cursor: pointer;
+	width: 80px;
+	height: 80px;
+	background-color: transparent;
+	border: none;
+	margin-right: 30px;
+}
+
+.subscribeView .forwardBtn {
+	cursor: pointer;
+	width: 80px;
+	height: 80px;
+	/* background-color: transparent; */
+	border: 2px solid #ffffff;
+	border-radius: 360px;
+	margin-left: 30px;
+}
+
+.subscribeView .forwardBtn img {
+	margin-left: -22px;
+	margin-bottom: -4px;
+}

@@ -1,0 +1,79 @@
+.questionContainer {
+	/* margin-top: 12rem; */
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	/* width: 100vw;
+	height: 100vh; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 3s;
+}
+
+/* Styling for the user's name */
+.questionContainer .inner h1 {
+	font-family: 'Playfair Display', serif;
+	line-height: 26px;
+	font-size: 26px;
+	letter-spacing: 0px;
+	text-align: center;
+	font-weight: 200;
+	text-shadow: 0 4px 36px rgb(53 54 54 / 68%);
+}
+
+.questionContainer .inner form {
+	margin-top: 21.5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 46.5px;
+}
+
+/* Styling for the actual question */
+.questionContainer .inner form label {
+	font-family: 'Playfair Display', serif;
+	line-height: 45px;
+	font-size: 45px;
+	font-weight: 200;
+	text-align: center;
+	letter-spacing: 0px;
+	max-width: 70%;
+	text-shadow:0 4px 36px rgb(53 54 54 / 68%);
+}
+
+.questionContainer .inner form input {
+	letter-spacing: 0px;
+	font-size: 26px;
+	padding-left: 34px;
+	width: 1023px;
+	height: 49px;
+	background: transparent url('../images/Rectangle145.png') 0% 0% no-repeat
+		padding-box;
+	border-radius: 360px;
+	border: none;
+	color: white;
+	outline: none;
+	position: relative;
+	box-shadow: 0 4px 36px rgb(53 54 54 / 68%);
+}
+
+.questionContainer .inner form input:focus,
+.questionContainer .inner form input:active {
+	outline: none;
+	border: none;
+	background: transparent url('../images/Rectangle145.png') 0% 0% no-repeat
+		padding-box;
+}
+
+/* .questionContainer .inner form input:after {
+	content: '';
+	background: white;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 50%;
+	width: 5px;
+} */

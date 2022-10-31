@@ -1,0 +1,3 @@
+const stripe = Stripe(
+	'pk_test_51KddlyDk6SusXP09fF6dnGqxnXpKOz3vB215G4WPbtoI3wvrrPifNbnZXIe9Q9Lu0SP8Paebt8JfxJkYWGVZxPgm00UBWt8TvU'
+);

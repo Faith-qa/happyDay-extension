@@ -1,0 +1,76 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: #333;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 30vw;
+}
+
+h1 {
+	font-size: 3em;
+	margin: 0;
+	padding: 0;
+	color: #333;
+}
+
+p {
+	font-size: 1.5em;
+	color: #333;
+}
+
+.label_input {
+	display: flex;
+	flex-direction: column;
+	margin: 10px 0;
+	padding: 0;
+	width: 100%;
+}
+
+.label_input label {
+	font-size: 1.3em;
+	color: #333;
+	margin-bottom: 10px;
+	padding: 0;
+}
+
+.label_input input[type='password'] {
+	border: none;
+	outline: none;
+	border-bottom: 1px solid #333;
+	transition: all 0.5s ease-in-out;
+}
+
+.label_input input[type='password']:active,
+.label_input input[type='password']:focus {
+	border-bottom: 2px solid #333;
+	padding-bottom: 4px;
+}
+
+button[type='submit'] {
+	margin: 20px;
+	padding: 10px;
+	font-size: 1em;
+	border: none;
+	background-color: #333;
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.5s ease-in-out;
+}
+
+button[type='submit']:hover {
+	transform: scale(1.3);
+}
